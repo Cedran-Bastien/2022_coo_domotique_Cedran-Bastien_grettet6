@@ -1,19 +1,21 @@
+import java.util.ArrayList;
+
 public class Telecommande {
-    private Lampe lampes;
+    private ArrayList<Lampe> lampes;
 
     public Telecommande(){
-        throw new Error (" code non ecrit ");
-    };
+        this.lampes=null;
+    }
 
-    public void ajouter(Lampe lampe){
+    public void ajouterLampe(Lampe lampe){
+        lampes.add(lampe);
+    }
+
+    public void activerLampe(int indiceLampe){
         throw new Error (" code non ecrit ");
     }
 
-    public void activerLampe(int indiceL){
-        throw new Error (" code non ecrit ");
-    }
-
-    public void desservirLampe(int indiceL){
+    public void desactiverLampe(int indiceLampe){
         throw new Error (" code non ecrit ");
     }
 
@@ -27,4 +29,9 @@ public class Telecommande {
                 "lampe=" + lampes +
                 '}';
     }
+
+    public Lampe getLampes(int indice) {
+        return lampes.get(indice);
+    }
+
 }
