@@ -1,0 +1,74 @@
+
+import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Test;
+
+public class TestTelecommande {
+    @Test
+    public void test_ajout_lampe_telecommande_vide(){
+        //preparation des données
+        Telecommande tel1 =new Telecommande();
+        Lampe l1 = new Lampe("lampe1");
+
+        //execution de la methode testé
+        tel1.ajouterLampe(l1);
+
+        //test
+        Assertions.assertEquals(l1,tel1.getLampes(0),"la lampe en position 0 doit etre ");
+    }
+
+    @Test
+    public void test_ajout_lampe_telecommande_1element(){
+        //preparation des données
+        Telecommande tel1 =new Telecommande();
+        Lampe l1 = new Lampe("lampe1");
+        Lampe l2 = new Lampe("lampe2");
+        tel1.ajouterLampe(l1);
+
+        //execution de la methode testé
+        tel1.ajouterLampe(l2);
+
+        //test
+        Assertions.assertEquals(l2,tel1.getLampes(1),"la lampe en position 0 doit etre ");
+    }
+
+    @Test
+    public void test_activation_lampe_position_0(){
+        //preparation des données
+        Telecommande tel1 =new Telecommande();
+        Lampe l1 = new Lampe("lampe1");
+        Lampe l2 = new Lampe("lampe2");
+        tel1.ajouterLampe(l1);
+        tel1.ajouterLampe(l2);
+
+        //execution de la methode testé
+        tel1.activerLampe(0);
+
+        //test
+        Assertions.assertEquals(true,l1.isAllume(),"la lampe l1 doit etre allumer");
+    }
+
+    @Test
+    public void test_activation_lampe_position_1(){
+        //preparation des données
+        Telecommande tel1 =new Telecommande();
+        Lampe l1 = new Lampe("lampe1");
+        Lampe l2 = new Lampe("lampe2");
+        tel1.ajouterLampe(l1);
+        tel1.ajouterLampe(l2);
+
+        //execution de la methode testé
+        tel1.activerLampe(1);
+
+        //test
+        Assertions.assertEquals(true,l2.isAllume(),"la lampe l1 doit etre allumer");
+    }
+
+    @Test
+    public void test_activation_lampe_inexistante(){
+        //preparation des données
+        Telecommande tel1 =new Telecommande();
+
+        //test
+        IndexOutOfBoundsException ex = Assertions.assertThrows( IndexOutOfBoundsException.class,() -> tel1.activerLampe(0));
+    }
+}

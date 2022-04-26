@@ -5,21 +5,19 @@ public class Telecommande {
     private ArrayList<Lampe> lampes;
 
     public Telecommande(){
-        this.lampes=null;
+        this.lampes=new ArrayList<Lampe>();
     }
 
     public void ajouterLampe(Lampe lampe){
         lampes.add(lampe);
     }
 
-    public void activerLampe(int indiceLampe) throws NullPointerException{
-        Lampe l1 = lampes.get(indiceLampe);
-        l1.allumer();
+    public void activerLampe(int indiceLampe) throws IndexOutOfBoundsException{
+        lampes.get(indiceLampe).allumer();
     }
 
-    public void desactiverLampe(int indiceLampe) throws NullPointerException{
-        Lampe l1 = lampes.get(indiceLampe);
-        l1.eteindre();
+    public void desactiverLampe(int indiceLampe) throws IndexOutOfBoundsException{
+        lampes.get(indiceLampe).eteindre();
     }
 
     public void activerTout(){
