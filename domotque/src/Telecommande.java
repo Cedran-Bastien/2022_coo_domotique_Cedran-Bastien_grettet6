@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Telecommande {
     private ArrayList<Lampe> lampes;
@@ -11,16 +12,21 @@ public class Telecommande {
         lampes.add(lampe);
     }
 
-    public void activerLampe(int indiceLampe){
-        throw new Error (" code non ecrit ");
+    public void activerLampe(int indiceLampe) throws NullPointerException{
+        Lampe l1 = lampes.get(indiceLampe);
+        l1.allumer();
     }
 
-    public void desactiverLampe(int indiceLampe){
-        throw new Error (" code non ecrit ");
+    public void desactiverLampe(int indiceLampe) throws NullPointerException{
+        Lampe l1 = lampes.get(indiceLampe);
+        l1.eteindre();
     }
 
     public void activerTout(){
-        throw new Error (" code non ecrit ");
+        Iterator<Lampe> iterator = lampes.iterator();
+        while(iterator.hasNext()){
+            iterator.next().allumer();
+        }
     }
 
     @Override
