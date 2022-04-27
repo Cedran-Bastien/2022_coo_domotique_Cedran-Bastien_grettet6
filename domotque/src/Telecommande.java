@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 /**
- * @version v2.0
+ * @version fin_TP08
  */
 
 public class Telecommande {
@@ -12,8 +12,8 @@ public class Telecommande {
         this.peripheriques=new ArrayList<Péripherique>();
     }
 
-    public void ajouterLampe(Lampe lampe){
-        peripheriques.add(lampe);
+    public void ajouterLampe(Péripherique peripherique){
+        peripheriques.add(peripherique);
     }
 
 
