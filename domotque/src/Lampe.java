@@ -5,7 +5,7 @@
  * prive et manipulable par les methodes allumer et eteindre
  */
 
-public class Lampe {
+public class Lampe implements Péripherique {
 
 	/**
 	 * nom de la lampe
@@ -46,7 +46,7 @@ public class Lampe {
 	 * retourne le descriptif de la lampe sous la forme nom + "On"/"Off"
 	 */
 	public String toString() {
-		String r = "";
+		String r = "lampes ";
 		if (this.allume) {
 			r = "On";
 		} else {

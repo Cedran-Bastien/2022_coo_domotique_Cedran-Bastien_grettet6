@@ -1,27 +1,42 @@
 import java.util.ArrayList;
 import java.util.Iterator;
 
+/**
+ * @version v2.0
+ */
+
 public class Telecommande {
-    private ArrayList<Lampe> lampes;
+    private ArrayList<Péripherique> peripheriques;
 
     public Telecommande(){
-        this.lampes=new ArrayList<Lampe>();
+        this.peripheriques=new ArrayList<Péripherique>();
     }
 
     public void ajouterLampe(Lampe lampe){
-        lampes.add(lampe);
+        peripheriques.add(lampe);
     }
 
-    public void activerLampe(int indiceLampe) throws IndexOutOfBoundsException{
-        lampes.get(indiceLampe).allumer();
+
+
+    public void activerLampe(int indiceLampe){
+        if (indiceLampe<this.peripheriques.size()){
+            peripheriques.get(indiceLampe).allumer();
+        }
     }
 
-    public void desactiverLampe(int indiceLampe) throws IndexOutOfBoundsException{
-        lampes.get(indiceLampe).eteindre();
+
+
+    public void desactiverLampe(int indiceLampe) {
+        if (indiceLampe<this.peripheriques.size()){
+            peripheriques.get(indiceLampe).eteindre();
+        }
+
     }
+
+
 
     public void activerTout(){
-        Iterator<Lampe> iterator = lampes.iterator();
+        Iterator<Péripherique> iterator = peripheriques.iterator();
         while(iterator.hasNext()){
             iterator.next().allumer();
         }
@@ -29,13 +44,15 @@ public class Telecommande {
 
     @Override
     public String toString() {
-        return "Telecommande{" +
-                "lampe=" + lampes +
-                '}';
+        String res = "contenue de la telecommande : \n";
+        for (int i=0; i<peripheriques.size();i++){
+            res+= "    -"+peripheriques.get(i).toString();
+        }
+        return (res);
     }
 
-    public Lampe getLampes(int indice) {
-        return lampes.get(indice);
+    public Péripherique getperipheriques(int indice) {
+        return peripheriques.get(indice);
     }
 
 }
