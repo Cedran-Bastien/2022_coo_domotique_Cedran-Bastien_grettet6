@@ -1,4 +1,4 @@
-public interface Péripherique {
+public interface Peripherique {
 
 
     public void allumer();

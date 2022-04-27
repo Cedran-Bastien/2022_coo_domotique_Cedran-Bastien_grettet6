@@ -6,13 +6,13 @@ import java.util.Iterator;
  */
 
 public class Telecommande {
-    private ArrayList<Péripherique> peripheriques;
+    private ArrayList<Peripherique> peripheriques;
 
     public Telecommande(){
-        this.peripheriques=new ArrayList<Péripherique>();
+        this.peripheriques=new ArrayList<Peripherique>();
     }
 
-    public void ajouterLampe(Péripherique peripherique){
+    public void ajouterLampe(Peripherique peripherique){
         peripheriques.add(peripherique);
     }
 
@@ -36,7 +36,7 @@ public class Telecommande {
 
 
     public void activerTout(){
-        Iterator<Péripherique> iterator = peripheriques.iterator();
+        Iterator<Peripherique> iterator = peripheriques.iterator();
         while(iterator.hasNext()){
             iterator.next().allumer();
         }
@@ -51,7 +51,7 @@ public class Telecommande {
         return (res);
     }
 
-    public Péripherique getperipheriques(int indice) {
+    public Peripherique getperipheriques(int indice) {
         return peripheriques.get(indice);
     }
 
