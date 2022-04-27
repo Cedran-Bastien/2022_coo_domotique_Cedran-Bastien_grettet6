@@ -10,10 +10,10 @@ public class TestTelecommande {
         Lampe l1 = new Lampe("lampe1");
 
         //execution de la methode testé
-        tel1.ajouterLampe(l1);
+        tel1.ajouterLampe((Peripherique) l1);
 
         //test
-        Assertions.assertEquals(l1,tel1.getLampes(0),"la lampe en position 0 doit etre ");
+        Assertions.assertEquals(l1,tel1.getperipheriques(0),"la lampe en position 0 doit etre ");
     }
 
     @Test
@@ -22,13 +22,13 @@ public class TestTelecommande {
         Telecommande tel1 =new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-        tel1.ajouterLampe(l1);
+        tel1.ajouterLampe((Peripherique) l1);
 
         //execution de la methode testé
-        tel1.ajouterLampe(l2);
+        tel1.ajouterLampe((Peripherique) l2);
 
         //test
-        Assertions.assertEquals(l2,tel1.getLampes(1),"la lampe en position 0 doit etre ");
+        Assertions.assertEquals(l2,tel1.getperipheriques(1),"la lampe en position 0 doit etre ");
     }
 
     @Test
@@ -37,8 +37,8 @@ public class TestTelecommande {
         Telecommande tel1 =new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-        tel1.ajouterLampe(l1);
-        tel1.ajouterLampe(l2);
+        tel1.ajouterLampe((Peripherique) l1);
+        tel1.ajouterLampe((Peripherique) l2);
 
         //execution de la methode testé
         tel1.activerLampe(0);
@@ -53,8 +53,8 @@ public class TestTelecommande {
         Telecommande tel1 =new Telecommande();
         Lampe l1 = new Lampe("lampe1");
         Lampe l2 = new Lampe("lampe2");
-        tel1.ajouterLampe(l1);
-        tel1.ajouterLampe(l2);
+        tel1.ajouterLampe((Peripherique) l1);
+        tel1.ajouterLampe((Peripherique) l2);
 
         //execution de la methode testé
         tel1.activerLampe(1);
@@ -63,12 +63,14 @@ public class TestTelecommande {
         Assertions.assertEquals(true,l2.isAllume(),"la lampe l1 doit etre allumer");
     }
 
+
     @Test
     public void test_activation_lampe_inexistante(){
         //preparation des données
         Telecommande tel1 =new Telecommande();
-
+        tel1.ajouterLampe(new Lampe("l"));
+        Lampe l2 = new Lampe("l");
         //test
-        IndexOutOfBoundsException ex = Assertions.assertThrows( IndexOutOfBoundsException.class,() -> tel1.activerLampe(0));
+        Assertions.assertEquals(tel1.getperipheriques(0).toString(), l2.toString(),"rien ne devrait avoir changé");
     }
 }
