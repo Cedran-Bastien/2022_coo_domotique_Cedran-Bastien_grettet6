@@ -1,19 +1,23 @@
-public class ChemineeAdapter extends Cheminee implements Peripherique{
-    private int intensite;
+public class ChemineeAdapter implements Peripherique{
+    private Cheminee chemineeAControler;
 
-    public ChemineeAdapter(){
-        super();
+    public ChemineeAdapter(Cheminee origine){
+        this.chemineeAControler = origine;
     }
-
 
     @Override
     public void allumer() {
-        this.changerIntensite(getLumiere()+10);
+        int lumiere = this.chemineeAControler.getLumiere()+10;
+        this.chemineeAControler.changerIntensite(lumiere);
     }
 
     @Override
     public void eteindre() {
-        this.changerIntensite(0);
+        this.chemineeAControler.changerIntensite(0);
+    }
+
+    public String toString(){
+        return this.toString();
     }
 
 
