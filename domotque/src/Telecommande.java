@@ -5,20 +5,20 @@ import java.util.Iterator;
  * @version fin_TP08
  */
 
-public class Telecommande extends ChemineeAdapter{
+public class Telecommande{
     private ArrayList<Peripherique> peripheriques;
 
     public Telecommande(){
         this.peripheriques=new ArrayList<Peripherique>();
     }
 
-    public void ajouterLampe(Peripherique peripherique){
+    public void ajouterAppareil(Peripherique peripherique){
         peripheriques.add(peripherique);
     }
 
 
 
-    public void activerLampe(int indiceLampe){
+    public void activerAppareil(int indiceLampe){
         if (indiceLampe<this.peripheriques.size()){
             peripheriques.get(indiceLampe).allumer();
         }
@@ -26,7 +26,7 @@ public class Telecommande extends ChemineeAdapter{
 
 
 
-    public void desactiverLampe(int indiceLampe) {
+    public void desactiverAppareil(int indiceLampe) {
         if (indiceLampe<this.peripheriques.size()){
             peripheriques.get(indiceLampe).eteindre();
         }
@@ -55,4 +55,7 @@ public class Telecommande extends ChemineeAdapter{
         return peripheriques.get(indice);
     }
 
+    public int getNombre() {
+        return this.peripheriques.size();
+    }
 }

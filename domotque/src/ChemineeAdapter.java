@@ -17,7 +17,7 @@ public class ChemineeAdapter implements Peripherique{
     }
 
     public String toString(){
-        return this.toString();
+        return this.chemineeAControler.toString();
     }
 
 
