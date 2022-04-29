@@ -5,7 +5,7 @@ import java.util.Iterator;
  * @version fin_TP08
  */
 
-public class Telecommande {
+public class Telecommande extends ChemineeAdapter{
     private ArrayList<Peripherique> peripheriques;
 
     public Telecommande(){
