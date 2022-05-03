@@ -1,3 +1,4 @@
+import thermos.Thermostat;
 
 public class Main {
 
@@ -15,6 +16,8 @@ public class Main {
 		Lampe l2=new Lampe("Lampe2");
 		t.ajouterAppareil(l2);
 		t.ajouterAppareil(new Lampe("Lampe3"));
+		ThermostatAdapter therm = new ThermostatAdapter(new Thermostat());
+		t.ajouterAppareil(therm);
 
 		
 		TelecommandeGraphique tg=new TelecommandeGraphique(t);
